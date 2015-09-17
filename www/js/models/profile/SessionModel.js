@@ -3,7 +3,7 @@
  */
 define([
     "../../app",
-    "models/global/UserModel"
+    "../profile/UserModel"
 ], function(app, UserModel){
 
     var SessionModel = Backbone.Model.extend({
