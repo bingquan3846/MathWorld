@@ -1394,7 +1394,7 @@ html .ui-alt-icon .ui-radio-off:after {
 /* Loader */
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/bbq\/projects\/phonegap\/template\/css\/sass\/vendor\/jquery\.mobile-1\.4\.3\.scss}line{font-family:\00003928}}
 .ui-icon-loading {
-    background: url(images/ajax-loader.gif);
+    background: url(../img/ajax-loader.gif);
     background-size: 2.875em 2.875em;
 }
 

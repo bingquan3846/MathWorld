@@ -9,7 +9,7 @@ define([
 ], function($, _, Backbone, TumblrModel, FacebookModel, tagTemplate, facebookTemplate){
 
     var TagView = Backbone.View.extend({
-        el: $("#datalist"),
+        el: $("#listview"),
 
         initialize: function(keyword,user,channel) {
 
@@ -29,7 +29,7 @@ define([
                 this.model = new TumblrModel(options);
                 this.model.fetch({ success : onDataHandler, dataType: "jsonp"});
             }
-             if(channel == "facebook"){
+            if(channel == "facebook"){
                 this.channel = 'facebook';   
                 this.model = new FacebookModel(options);
                 this.model.fetch({ success : onDataHandler, dataType: "jsonp"});
@@ -51,6 +51,7 @@ define([
                     };
                 }
                 var compiledTemplate = _.template( tagTemplate, data );
+                console.log(this.$el);
                 this.$el.html(compiledTemplate);
             }
             if(this.channel == 'facebook'){
@@ -59,11 +60,9 @@ define([
                         posts: this.model.toJSON(),
                     _: _
                     };
-                    console.log(data);
                     var compiledTemplate = _.template( facebookTemplate, data );
                     this.$el.html(compiledTemplate);
             }
-
 
         }
 
