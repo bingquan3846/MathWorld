@@ -24,68 +24,127 @@
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name='viewport' content='width=device-width'/>
         <link rel="stylesheet" type="text/css" href="css/main.css" />
+        <link rel="stylesheet" type="text/css" href="css/profile.css" />
         <script data-main="js/main" src="js/libs/require/require.js" type="text/javascript"></script>
         <title>what is new in your social network</title>
     </head>
     <body class="black">
-    <div data-role="page" class="jqm-demos ui-responsive-panel" id="main" data-title="Panel responsive page">
+
+
+    <div  data-role="page" data-title="Home" id="home">
+
         <div data-role="header" data-position="fixed"  role="banner">
             <h1 style="color:#38c">MathWorld</h1>
-            <div data-role="navbar" class="ui-navbar" role="navigation" style="border-top:1px solid #ddd">
+            <!--<div data-role="navbar" class="ui-navbar" role="navigation" style="border-top:1px solid #ddd" id="search">
                 <form style="width:80%;margin:0 auto">
-                    <div data-role="fieldcontain">
-                        <input type="search" name="search-2" id="search-2" value="" placeholder="keywords"/>
-                    </div>
+
+                    <input type="search" name="search-2" id="search-2" value="home" placeholder="keywords"/>
+
                 </form>
-            </div>
+            </div>-->
         </div>
+
+        <div data-role="content" id="content">
+            <ul data-role="listview" data-inset="true" id="listview">
+            </ul>
+        </div><!-- /content -->
         <div data-role="footer" data-position="fixed" style="">
 
             <div data-role="navbar">
                 <ul>
-                <li><a href="#">Home</a> </li>
-                <li><a href="#">Community</a> </li>
-                <li><a href="#">Profile</a> </li>
+                    <li ><a href="#" class="ui-btn-active ui-state-persist">Home</a> </li>
+                    <li><a href="#community">Community</a> </li>
+                    <li><a href="#profile">Profile</a> </li>
                 </ul>
             </div>
-        </div><!-- /header -->
+        </div>
+    </div>
 
-        <div role="main" class="ui-content jqm-content jqm-fullwidth">
+    <div  data-role="page" data-title="Home" id="community">
 
+        <div data-role="header" data-position="fixed"  role="banner">
+            <h1 style="color:#38c">MathWorld</h1>
+            <!--<div data-role="navbar" class="ui-navbar" role="navigation" style="border-top:1px solid #ddd" id="search">
+                <form style="width:80%;margin:0 auto">
+
+                    <input type="search" name="search-2" id="search-2" value="home" placeholder="keywords"/>
+
+                </form>
+            </div>-->
+        </div>
+
+        <div data-role="content" id="content">
+
+            <ul data-role="listview" data-inset="true" id="listview">
+            </ul>
+        </div><!-- /content -->
+        <div data-role="footer" data-position="fixed" style="">
+
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#">Home</a> </li>
+                    <li ><a href="#community" class="ui-btn-active ui-state-persist">Community</a> </li>
+                    <li><a href="#profile">Profile</a> </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div  data-role="page" data-title="Home" id="profile">
+
+        <div data-role="header" data-position="fixed"  role="banner">
+            <h1 style="color:#38c">MathWorld</h1>
+            <!--<div data-role="navbar" class="ui-navbar" role="navigation" style="border-top:1px solid #ddd" id="search">
+                <form style="width:80%;margin:0 auto">
+
+                    <input type="search" name="search-2" id="search-2" value="home" placeholder="keywords"/>
+
+                </form>
+            </div>-->
+        </div>
+
+        <div data-role="content" id="content">
+            <div class="profile">
+                <div class="profile_header">
+                    <img src="img/header_1.png"  width="100%"/>
+                    <img src="img/tools/user168.png"  width="20%" id="profile_image"/>
+                </div>
+            </div>
+            <div class="ui-grid-c" >
+                <div class="ui-block-a" style="text-align: center;border:1px solid #ddd;border-radius: .3125em"><a href="#profile?task" ><img src="img/tools/edit26.png" width="40%" /> </a></div>
+                <div class="ui-block-b" style="text-align: center;border:1px solid #ddd;border-radius: .3125em"><a href="#profile?favorite"><img src="img/tools/favorite21.png" width="40%" /> </a></div>
+                <div class="ui-block-c" style="text-align: center;border:1px solid #ddd;border-radius: .3125em"><a href="#profile?email"><img src="img/tools/email19.png" width="40%" /> </a></div>
+                <div class="ui-block-d" style="text-align: center;border:1px solid #ddd;border-radius: .3125em"><a href="#profile?setting"><img src="img/tools/tools6.png" width="40%" /> </a></div>
+
+            </div>
+            <div class="ui-grid-c" style="margin-top:20px">
+                <div class="ui-block-a" style="text-align: center;border:1px solid #ddd;border-radius: .3125em"><a href="#profile?friends"><img src="img/tools/two137.png" width="40%" /> </a></div>
+                <div class="ui-block-b" style="text-align: center;border:1px solid #ddd;border-radius: .3125em"><a href="#profile?rewards"><img src="img/tools/reward2.png" width="40%" /> </a></div>
+                <div class="ui-block-c" style="text-align: center;border:1px solid #ddd;border-radius: .3125em"><a href="#profile?growth"><img src="img/tools/bars-graphic3.png" width="40%" /> </a></div>
+
+            </div>
+
+            <div data-role="collapsibleset" data-content-theme="a" data-iconpos="right" id="set">
+                <div data-role="collapsible" id="boards" data-collapsed="true">
+                    <h3>Lastest broadcasting</h3>
+                    <p>I'm the collapsible content.</p>
+                </div>
+            </div>
 
         </div><!-- /content -->
+        <div data-role="footer" data-position="fixed" style="">
 
-        <div data-role="panel" data-display="push" data-theme="b" id="nav-panel">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#">Home</a> </li>
+                    <li><a href="#community">Community</a> </li>
+                    <li ><a href="#profile" class="ui-btn-active ui-state-persist">Profile</a> </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-            <ul data-role="listview">
-                <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
-                <li><input type="radio" name="channel" id="tumblr" class="channel"/><label for="tumblr">Tumblr</label> </li>
-                <li><input type="radio" name="channel" id="facebook" class="channel"/><label for="facebook">Facebook</label></li>
-            </ul>
 
-        </div><!-- /panel -->
 
-        <div data-role="panel" data-position="right" data-display="reveal" data-theme="a" id="add-form">
 
-            <form class="userform">
-
-                <h2>Filter</h2>
-
-                <label for="tag">Keyword:</label>
-                <input type="text" name="tag" id="tag" value="" data-clear-btn="true" data-mini="true">
-
-                <label for="user">User:</label>
-                <input type="text" name="user" id="user" value="" data-clear-btn="true" data-mini="true">
-
-                <div class="ui-grid-a">
-                    <input type="reset" value="Reset" />
-                    <div class="ui-block-a"><a href="#" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-b ui-mini">Close</a></div>
-                    <div class="ui-block-b"><a href="#" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-mini">Save</a></div>
-                </div>
-            </form>
-
-        </div><!-- /panel -->
-
-    </div><!-- /page -->
     </body>
 </html>
