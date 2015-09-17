@@ -1,0 +1,13 @@
+.profile{
+	position: relative;
+	margin-bottom: 5%;
+}
+.profile .profile_header{
+	overflow:auto;
+	width:100%;
+}
+.profile #profile_image{
+	position: absolute;
+	left:10px;
+	bottom:10px;
+}
