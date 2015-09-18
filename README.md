@@ -1,5 +1,4 @@
-# MathWorld
-=======================
+
 phonegap demo
 =======================
 backbone demo
