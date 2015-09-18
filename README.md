@@ -1,9 +1,9 @@
 
-phonegap demo
+Phonegap demo
 =======================
-backbone demo
+Backbone demo
 =======================
-requireJs demo
+RequireJs demo
 =======================
 Instagram API demo
 =======================
