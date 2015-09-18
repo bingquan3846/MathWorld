@@ -2,7 +2,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'models/global/UserModel',
+    '../models/profile/UserModel',
     'text!templates/profile/profileTemplate.html',
 ], function($, _, Backbone, UserModel, profileTemplate){
 

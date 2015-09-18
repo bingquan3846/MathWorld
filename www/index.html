@@ -53,8 +53,8 @@
             <div data-role="navbar">
                 <ul>
                     <li ><a href="#" class="ui-btn-active ui-state-persist">Home</a> </li>
-                    <li><a href="#community">Community</a> </li>
-                    <li><a href="#profile">Profile</a> </li>
+                    <li><a href="#community" data-transition="slider">Community</a> </li>
+                    <li><a href="#profile" data-transition="slider">Profile</a> </li>
                 </ul>
             </div>
         </div>
@@ -75,16 +75,15 @@
 
         <div data-role="content" id="content">
 
-            <ul data-role="listview" data-inset="true" id="listview">
-            </ul>
+            community
         </div><!-- /content -->
         <div data-role="footer" data-position="fixed" style="">
 
             <div data-role="navbar">
                 <ul>
-                    <li><a href="#">Home</a> </li>
-                    <li ><a href="#community" class="ui-btn-active ui-state-persist">Community</a> </li>
-                    <li><a href="#profile">Profile</a> </li>
+                    <li><a href="#" data-transition="flip">Home</a> </li>
+                    <li ><a href="#community" class="ui-btn-active ui-state-persist" data-transition="flip">Community</a> </li>
+                    <li><a href="#profile" data-transition="flip">Profile</a> </li>
                 </ul>
             </div>
         </div>
@@ -110,7 +109,7 @@
                 </div>
             </div>
             <div class="ui-grid-c" >
-                <div class="ui-block-a" style="text-align: center;border:1px solid #ddd;border-radius: .3125em"><a href="#profile?task" ><img src="img/tools/edit26.png" width="40%" /> </a></div>
+                <div class="ui-block-a" style="text-align: center;border:1px solid #ddd;border-radius: .3125em"><a href="task.html" ><img src="img/tools/edit26.png" width="40%" data-transition="slider"/> </a></div>
                 <div class="ui-block-b" style="text-align: center;border:1px solid #ddd;border-radius: .3125em"><a href="#profile?favorite"><img src="img/tools/favorite21.png" width="40%" /> </a></div>
                 <div class="ui-block-c" style="text-align: center;border:1px solid #ddd;border-radius: .3125em"><a href="#profile?email"><img src="img/tools/email19.png" width="40%" /> </a></div>
                 <div class="ui-block-d" style="text-align: center;border:1px solid #ddd;border-radius: .3125em"><a href="#profile?setting"><img src="img/tools/tools6.png" width="40%" /> </a></div>
@@ -124,9 +123,13 @@
             </div>
 
             <div data-role="collapsibleset" data-content-theme="a" data-iconpos="right" id="set">
-                <div data-role="collapsible" id="boards" data-collapsed="true">
+                <div data-role="collapsible" id="boards" data-collapsed="false">
                     <h3>Lastest broadcasting</h3>
-                    <p>I'm the collapsible content.</p>
+                    <ul>
+                        <li>first message</li>
+                        <li>second message</li>
+                        <li>third message</li>
+                    </ul>
                 </div>
             </div>
 
@@ -135,9 +138,9 @@
 
             <div data-role="navbar">
                 <ul>
-                    <li><a href="#">Home</a> </li>
-                    <li><a href="#community">Community</a> </li>
-                    <li ><a href="#profile" class="ui-btn-active ui-state-persist">Profile</a> </li>
+                    <li><a href="#" data-transition="slider">Home</a> </li>
+                    <li><a href="#community" data-transition="slider">Community</a> </li>
+                    <li ><a href="#profile" class="ui-btn-active ui-state-persist" data-transition="slider">Profile</a> </li>
                 </ul>
             </div>
         </div>
