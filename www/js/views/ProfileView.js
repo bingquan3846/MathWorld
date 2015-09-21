@@ -2,35 +2,41 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    '../models/profile/UserModel',
+    '../models/global/WeatherModel',
     'text!templates/profile/profileTemplate.html',
-], function($, _, Backbone, UserModel, profileTemplate){
+], function($, _, Backbone, WeatherModel, profileTemplate){
 
-    var TagView = Backbone.View.extend({
-        el: $("#content"),
+    var ProfileView = Backbone.View.extend({
+        el: $("#weather"),
 
         initialize: function() {
+            var that = this;
+            var options = {longitude:11.0257699 , latitude: 49.375511};
 
-            var options = {username: 'northworld'}
-            this.model = new UserModel(options);
+
             var onDataHandler = function(collection) {
                 that.render();
             }
-            $('#search').hide();
+
+            this.weatherModel = new WeatherModel(options);
+            this.weatherModel.fetch({ success : onDataHandler, dataType: "jsonp"});
+
         },
 
         render: function(){
+
+
                 var data = {
-                    posts: this.model.toJSON().posts,
+                    info: this.weatherModel.toJSON(),
                     _: _
                 };
-
+                console.debug(JSON.stringify(data));
                 var compiledTemplate = _.template( profileTemplate, data );
                 this.$el.html(compiledTemplate);
         }
 
     });
 
-    return TagView;
+    return ProfileView;
 
 });

@@ -52,10 +52,9 @@ define([
     });
 
     app_router.on('route:showProfile', function (actions) {
-      //var tagView = new ProfileView("cat"  , '', 'tumblr');
-      //
-      //tagView.render();
-      //console.log('showCommunity');
+
+      var profileView = new ProfileView();
+
     });
 
     Backbone.history.start();
