@@ -14,12 +14,12 @@ define([
             var options = {longitude:11.0257699 , latitude: 49.375511};
 
 
-            var onDataHandler = function(collection) {
-                that.render();
-            }
-
             this.weatherModel = new WeatherModel(options);
-            this.weatherModel.fetch({ success : onDataHandler, dataType: "jsonp"});
+            this.weatherModel.fetch({ success: function(mod, res){
+
+                that.renderWeather(res);
+                console.log(res);
+            }});
 
         },
 
@@ -30,9 +30,17 @@ define([
                     info: this.weatherModel.toJSON(),
                     _: _
                 };
-                console.debug(JSON.stringify(data));
-                var compiledTemplate = _.template( profileTemplate, data );
-                this.$el.html(compiledTemplate);
+                //console.debug(JSON.stringify(data));
+
+        },
+        renderWeather :function(res){
+
+            var data = {
+                info : res,
+                _:_
+            }
+            var compiledTemplate = _.template( profileTemplate, data );
+            this.$el.html(compiledTemplate);
         }
 
     });
