@@ -51,7 +51,6 @@ define([
                     };
                 }
                 var compiledTemplate = _.template( tagTemplate, data );
-                console.log(this.$el);
                 this.$el.html(compiledTemplate);
             }
             if(this.channel == 'facebook'){

@@ -4,10 +4,11 @@ define([
   'jquerymobile',
   'underscore',
   'backbone',
+  'models/profile/SessionModel',
   'views/tag/TagView',
   'views/ProfileView'
 
-], function($,jm, _, Backbone, TagView, ProfileView) {
+], function($,jm, _, Backbone, SessionModel, TagView, ProfileView) {
   
   var AppRouter = Backbone.Router.extend({
     routes: {
@@ -20,7 +21,7 @@ define([
       '*actions': 'defaultAction'
     }
   });
-  
+
   var initialize = function(){
 
     var app_router = new AppRouter;
@@ -60,7 +61,7 @@ define([
     Backbone.history.start();
   };
 
-  return { 
+  return {
     initialize: initialize
   };
 

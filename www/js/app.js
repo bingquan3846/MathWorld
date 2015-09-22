@@ -6,25 +6,30 @@ define([
     'backbone',
     'router', // Request router.js
 ], function($,jm, _, Backbone, Router){
+
     var app = {
-        API : "/api"
-    }
-    var initialize = function(){
-        // Pass in our Router module and call it's initialize function
-        $.mobile.linkBindingEnabled = false;
-        $.mobile.hashListeningEnabled = true;
+        root : "http://localhost",                     // The root path to run the application through.
+        URL : "http://localhost",                      // Base application URL
+        API : "http://localhost/",                   // Base API URL (used by models & collections)
 
-        $(document).on("pagebeforecreate",function(){
-            $.mobile.loading('show');
-        });
-        $(document).on("pagecreate",function(){
-            $.mobile.loading('hide');
-        });
+        // Show alert classes and hide after specified timeout
 
-        Router.initialize();
+        initialize:function(){
+            // Pass in our Router module and call it's initialize function
+            $.mobile.linkBindingEnabled = false;
+            $.mobile.hashListeningEnabled = true;
+
+            $(document).on("pagebeforecreate",function(){
+                $.mobile.loading('show');
+            });
+            $(document).on("pagecreate",function(){
+                $.mobile.loading('hide');
+            });
+
+            Router.initialize();
+        }
     };
 
-    return {
-        initialize: initialize
-    };
+
+    return app;
 });
