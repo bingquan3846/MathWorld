@@ -1,7 +1,7 @@
 
 Phonegap demo
 =======================
-Backbone demo
+Backbone-login demo
 =======================
 RequireJs demo
 =======================
