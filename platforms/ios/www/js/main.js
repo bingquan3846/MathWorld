@@ -3,6 +3,7 @@
 
 // Require.js allows us to configure shortcut alias
 // Their usage will become more apparent futher along in the tutorial.
+
 require.config({
     paths: {
         jquery: 'libs/jquery/jquery-1.10.2.min',
@@ -12,16 +13,31 @@ require.config({
         underscore: 'libs/underscore/underscore-min',
         backbone: 'libs/backbone/backbone-min',
         templates: '../templates'
+    },
+
+    shim: {
+        'underscore'            : { exports  : '_' },
+        'backbone'              : { deps : ['underscore', 'jquery'], exports : 'Backbone' },
+        'bootstrap'             : { deps : ['jquery'], exports : 'Bootstrap' },
+        'parsley'               : { deps: ['jquery'] }
     }
 
 });
 
+
 require([
     // Load our app module and pass it to our definition function
+    'global',
     'app',
+    'router',
+    'models/global/SessionModel'
 
-], function(App){
+], function(global, app, router,SessionModel){
     // The "app" dependency is passed in as "App"
     // Again, the other dependencies passed in are not "AMD" therefore don't pass a parameter to this function
-    App.initialize();
+    app.initialize();
+
+    global.session = new SessionModel({});
+
+    router.initialize();
 });

@@ -2,9 +2,9 @@
  * @desc		stores the POST state and response state of authentication for user
  */
 define([
-    "../../app",
-    "../profile/UserModel"
-], function(app, UserModel){
+    "global",
+    "models/global/UserModel"
+], function(global, UserModel){
 
     var SessionModel = Backbone.Model.extend({
 
@@ -19,13 +19,13 @@ define([
             _.bindAll(this);
 
             // Singleton user object
-            // Access or listen on this throughout any module with app.session.user
+            // Access or listen on this throughout any module with global.session.user
             this.user = new UserModel({});
         },
 
 
         url: function(){
-            return app.API + '/auth';
+            return global.API + '/auth';
         },
 
         // Fxn to update user attributes after recieving API response
@@ -35,25 +35,25 @@ define([
 
 
         /*
-         * Check for session from API 
+         * Check for session from API
          * The API will parse client cookies using its secret token
          * and return a user object if authenticated
          */
         checkAuth: function(callback, args) {
             var self = this;
-            this.fetch({ 
+            this.fetch({
                 success: function(mod, res){
                     if(!res.error && res.user){
                         self.updateSessionUser(res.user);
                         self.set({ logged_in : true });
-                        if('success' in callback) callback.success(mod, res);    
+                        if('success' in callback) callback.success(mod, res);
                     } else {
                         self.set({ logged_in : false });
-                        if('error' in callback) callback.error(mod, res);    
+                        if('error' in callback) callback.error(mod, res);
                     }
                 }, error:function(mod, res){
                     self.set({ logged_in : false });
-                    if('error' in callback) callback.error(mod, res);    
+                    if('error' in callback) callback.error(mod, res);
                 }
             }).complete( function(){
                 if('complete' in callback) callback.complete();
@@ -72,7 +72,7 @@ define([
             if(DEBUG) console.log(postData);
             $.ajax({
                 url: this.url() + '/' + opts.method,
-                contentType: 'application/json',
+                contentType: 'globallication/json',
                 dataType: 'json',
                 type: 'POST',
                 beforeSend: function(xhr) {
@@ -123,7 +123,7 @@ define([
         }
 
     });
-    
+
     return SessionModel;
 });
 

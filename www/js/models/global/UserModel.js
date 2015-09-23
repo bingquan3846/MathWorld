@@ -2,8 +2,8 @@
  * @desc		stores the POST state and response state of authentication for user
  */
 define([
-    "../../app"
-], function(app){
+    "global"
+], function(global){
 
     var UserModel = Backbone.Model.extend({
 
@@ -19,7 +19,7 @@ define([
         },
 
         url: function(){
-            return app.API + '/user';
+            return global.API + '/user';
         }
 
     });

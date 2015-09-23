@@ -3,28 +3,27 @@ define([
     'jquery',
     'jquerymobile',
     'underscore',
-    'backbone',
-    'router', // Request router.js
-], function($,jm, _, Backbone, Router){
+    'backbone'
+], function($,jm, _, Backbone){
+
     var app = {
-        API : "/api"
-    }
-    var initialize = function(){
-        // Pass in our Router module and call it's initialize function
-        $.mobile.linkBindingEnabled = false;
-        $.mobile.hashListeningEnabled = true;
 
-        $(document).on("pagebeforecreate",function(){
-            $.mobile.loading('show');
-        });
-        $(document).on("pagecreate",function(){
-            $.mobile.loading('hide');
-        });
+        // Show alert classes and hide after specified timeout
 
-        Router.initialize();
+        initialize:function(){
+            // Pass in our Router module and call it's initialize function
+            $.mobile.linkBindingEnabled = false;
+            $.mobile.hashListeningEnabled = true;
+
+            $(document).on("pagebeforecreate",function(){
+                $.mobile.loading('show');
+            });
+            $(document).on("pagecreate",function(){
+                $.mobile.loading('hide');
+            });
+        }
     };
 
-    return {
-        initialize: initialize
-    };
+
+    return app;
 });

@@ -1,13 +1,15 @@
 // Filename: router.js
 define([
+  'global',
   'jquery',
   'jquerymobile',
   'underscore',
   'backbone',
   'views/tag/TagView',
-  'views/ProfileView'
+  'views/ProfileView',
+  'views/global/LoginPageView'
 
-], function($,jm, _, Backbone, TagView, ProfileView) {
+], function(global, $,jm, _, Backbone, TagView, ProfileView, LoginPageView) {
   
   var AppRouter = Backbone.Router.extend({
     routes: {
@@ -15,12 +17,44 @@ define([
       'home': 'showHome',
       'community': 'showCommunity',
       'profile'  : 'showProfile',
+      'login'    : 'showLogin',
       
       // Default
       '*actions': 'defaultAction'
-    }
+    },
+    initialize: function(options) {
+
+
+    },
+
+    defaultAction:function(){
+      var tagView = new TagView("dog"  , '', 'tumblr');
+
+      tagView.render();
+
+      console.log('showHome');
+    },
+    showCommunity:function(){
+      console.log('showCommunity');
+    },
+    showProfile:function(){
+      console.log('showProfile');
+    },
+    showLogin:function(){
+      var loginView = new LoginPageView();
+      loginView.render();
+    },
+    execute: function(callback, args, name) {
+
+      if(!global.session.get('logged_in')){
+        this.navigate('/login');
+        this.showLogin();
+      }else{
+        this.navigate('/');
+      }
+    },
   });
-  
+
   var initialize = function(){
 
     var app_router = new AppRouter;
@@ -36,31 +70,12 @@ define([
     });
 
 
-
-    app_router.on('route:defaultAction', function (actions) {
-
-      var tagView = new TagView("dog"  , '', 'tumblr');
-
-      tagView.render();
-
-      console.log('showHome');
-    });
-
-    app_router.on('route:showCommunity', function (actions) {
-
-      console.log('showCommunity');
-    });
-
-    app_router.on('route:showProfile', function (actions) {
-
-      var profileView = new ProfileView();
-
-    });
-
     Backbone.history.start();
+    app_router.execute();
+
   };
 
-  return { 
+  return {
     initialize: initialize
   };
 

@@ -25,7 +25,6 @@ define([
 
         render: function(){
 
-
                 var data = {
                     info: this.weatherModel.toJSON(),
                     _: _

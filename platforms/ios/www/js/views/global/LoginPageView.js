@@ -1,19 +1,24 @@
 define([
-    "app",
+    "../../global",
+    'jquery',
+    'underscore',
+    'backbone',
+    "text!templates/global/logged-in-page.html",
+    "text!templates/global/login-page.html",
 
-    "text!templates/logged-in-page.html",
-    "text!templates/login-page.html",
-
-    "parsley"
-], function(app, LoggedInPageTpl, LoginPageTpl){
+    "../../libs/parsley"
+], function(global, $ ,_ ,Backbone, LoggedInPageTpl, LoginPageTpl){
 
     var LoginView = Backbone.View.extend({
+
+        el: $("#login #content"),
+
 
         initialize: function () {
             _.bindAll(this);
 
             // Listen for session logged_in state changes and re-render
-            app.session.on("change:logged_in", this.render);
+            global.session.on("change:logged_in", this.render);
         },
 
         events: {
@@ -53,7 +58,7 @@ define([
             if(evt) evt.preventDefault();
 
             if(this.$("#login-form").parsley('validate')){
-                app.session.login({
+                global.session.login({
                     username: this.$("#login-username-input").val(),
                     password: this.$("#login-password-input").val()
                 }, {
@@ -62,8 +67,10 @@ define([
 
                     },
                     error: function(err){
+                        global.session.set({ logged_in : true });
+
                         if(DEBUG) console.log("ERROR", err);
-                        app.showAlert('Bummer dude!', err.error, 'alert-danger'); 
+                        global.showAlert('Bummer dude!', err.error, 'alert-danger'); 
                     }
                 });
             } else {
@@ -77,7 +84,7 @@ define([
         onSignupAttempt: function(evt){
             if(evt) evt.preventDefault();
             if(this.$("#signup-form").parsley('validate')){
-                app.session.signup({
+                global.session.signup({
                     username: this.$("#signup-username-input").val(),
                     password: this.$("#signup-password-input").val(),
                     name: this.$("#signup-name-input").val()
@@ -88,7 +95,7 @@ define([
                     },
                     error: function(err){
                         if(DEBUG) console.log("ERROR", err);
-                        app.showAlert('Uh oh!', err.error, 'alert-danger'); 
+                        global.showAlert('Uh oh!', err.error, 'alert-danger'); 
                     }
                 });
             } else {
@@ -99,10 +106,10 @@ define([
         },
 
         render:function () {
-            if(app.session.get('logged_in')) this.template = _.template(LoggedInPageTpl);
+            if(global.session.get('logged_in')) this.template = _.template(LoggedInPageTpl);
             else this.template = _.template(LoginPageTpl); 
 
-            this.$el.html(this.template({ user: app.session.user.toJSON() }));
+            this.$el.html(this.template({ user: global.session.user.toJSON() }));
             return this;
         }
 
