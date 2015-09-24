@@ -1,10 +1,11 @@
 define([
+    'global',
     'jquery',
     'underscore',
     'backbone',
     '../models/global/WeatherModel',
     'text!templates/profile/profileTemplate.html',
-], function($, _, Backbone, WeatherModel, profileTemplate){
+], function(global,$, _, Backbone, WeatherModel, profileTemplate){
 
     var ProfileView = Backbone.View.extend({
         el: $("#weather"),
@@ -21,6 +22,10 @@ define([
                 console.log(res);
             }});
 
+        },
+
+        events: {
+            'click #task'  : global.redirect('task.html'),
         },
 
         render: function(){

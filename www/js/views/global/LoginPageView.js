@@ -25,7 +25,8 @@ define([
             'click #login-btn'                      : 'onLoginAttempt',
             'click #signup-btn'                     : 'onSignupAttempt',
             'keyup #login-password-input'           : 'onPasswordKeyup',
-            'keyup #signup-password-confirm-input'  : 'onConfirmPasswordKeyup'
+            'keyup #signup-password-confirm-input'  : 'onConfirmPasswordKeyup',
+            //'click #start'                          :  global.redirect('#'),
         },
 
         // Allow enter press to trigger login
@@ -110,7 +111,12 @@ define([
             else this.template = _.template(LoginPageTpl); 
 
             this.$el.html(this.template({ user: global.session.user.toJSON() }));
-            return this;
+
+            if(global.session.get('logged_in')){
+                this.$el.find('#start').on('click',function(){global.redirect('#')});
+            }
+
+                return this;
         }
 
     });

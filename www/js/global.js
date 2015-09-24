@@ -24,7 +24,14 @@ define([
                 setTimeout(function() {
                     $("#header-alert").hide();
                 }, 7000 );
-            }
+            },
+            redirect: function(url){
+                $.mobile.changePage( url, {
+                    transition: "slide",
+                    reverse: false,
+                    changeHash: false
+                })
+            },
         }
 
 

@@ -12,8 +12,8 @@ define([
 
         initialize:function(){
             // Pass in our Router module and call it's initialize function
-            $.mobile.linkBindingEnabled = false;
-            $.mobile.hashListeningEnabled = true;
+            //$.mobile.linkBindingEnabled = false;
+            //$.mobile.hashListeningEnabled = true;
 
             $(document).on("pagebeforecreate",function(){
                 $.mobile.loading('show');
