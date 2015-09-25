@@ -112,11 +112,8 @@ define([
 
             this.$el.html(this.template({ user: global.session.user.toJSON() }));
 
-            if(global.session.get('logged_in')){
-                this.$el.find('#start').on('click',function(){global.redirect('#')});
-            }
 
-                return this;
+            return this;
         }
 
     });

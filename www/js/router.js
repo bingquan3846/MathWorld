@@ -38,6 +38,8 @@ define([
       console.log('showCommunity');
     },
     showProfile:function(){
+      var profileView = new ProfileView();
+
       console.log('showProfile');
     },
     showLogin:function(){

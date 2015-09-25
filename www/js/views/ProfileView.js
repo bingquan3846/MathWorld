@@ -8,7 +8,7 @@ define([
 ], function(global,$, _, Backbone, WeatherModel, profileTemplate){
 
     var ProfileView = Backbone.View.extend({
-        el: $("#weather"),
+        el: $("#profile #content"),
 
         initialize: function() {
             var that = this;
@@ -23,11 +23,6 @@ define([
             }});
 
         },
-
-        events: {
-            'click #task'  : global.redirect('task.html'),
-        },
-
         render: function(){
 
                 var data = {
@@ -44,7 +39,9 @@ define([
                 _:_
             }
             var compiledTemplate = _.template( profileTemplate, data );
+
             this.$el.html(compiledTemplate);
+            this.$el.find('#task').on('click',function(){global.redirect('task.html')});
         }
 
     });

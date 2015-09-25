@@ -1,1 +1,33 @@
-<%= info.name %> -- <%= info.weather[0].description %>
+
+
+<div class="profile">
+    <div class="profile_header">
+        <img src="img/header_1.png"  width="100%"/>
+        <img src="img/tools/user168.png"  width="20%" id="profile_image"/>
+        <div id="weather" ><%= info.name %> -- <%= info.weather[0].description %></div>
+    </div>
+</div>
+<div class="ui-grid-c" >
+    <div class="ui-block-a" style="text-align: center;border:1px solid #ddd;border-radius: .3125em"><a href="#" id="task"><img src="img/tools/edit26.png" width="40%" data-transition="slide"/> </a></div>
+    <div class="ui-block-b" style="text-align: center;border:1px solid #ddd;border-radius: .3125em"><a href="#profile?favorite"><img src="img/tools/favorite21.png" width="40%" /> </a></div>
+    <div class="ui-block-c" style="text-align: center;border:1px solid #ddd;border-radius: .3125em"><a href="#profile?email"><img src="img/tools/email19.png" width="40%" /> </a></div>
+    <div class="ui-block-d" style="text-align: center;border:1px solid #ddd;border-radius: .3125em"><a href="#profile?setting"><img src="img/tools/tools6.png" width="40%" /> </a></div>
+
+</div>
+<div class="ui-grid-c" style="margin-top:20px">
+    <div class="ui-block-a" style="text-align: center;border:1px solid #ddd;border-radius: .3125em"><a href="#profile?friends"><img src="img/tools/two137.png" width="40%" /> </a></div>
+    <div class="ui-block-b" style="text-align: center;border:1px solid #ddd;border-radius: .3125em"><a href="#profile?rewards"><img src="img/tools/reward2.png" width="40%" /> </a></div>
+    <div class="ui-block-c" style="text-align: center;border:1px solid #ddd;border-radius: .3125em"><a href="#profile?growth"><img src="img/tools/bars-graphic3.png" width="40%" /> </a></div>
+
+</div>
+
+<div data-role="collapsibleset" data-content-theme="a" data-iconpos="right" id="set">
+    <div data-role="collapsible" id="boards" data-collapsed="false">
+        <h3>Lastest broadcasting</h3>
+        <ul>
+            <li>first message</li>
+            <li>second message</li>
+            <li>third message</li>
+        </ul>
+    </div>
+</div>
